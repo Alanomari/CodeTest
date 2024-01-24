@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace TollFeeCalculator
 {
-    public interface Vehicle
+    public enum VehicleType
     {
-        String GetVehicleType();
+        Motorbike,
+        Car,
+    }
+
+    public interface IVehicle
+    {
+        VehicleType GetVehicleType();
     }
 }
