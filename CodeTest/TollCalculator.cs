@@ -1,6 +1,4 @@
-﻿using TollCalculator.Vehicles;
-
-namespace TollCalculator
+﻿namespace CodeTest.Vehicles
 {
     public class TollCalculator
     {

@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CodeTest\TollCalculator.csproj" />
+    <ProjectReference Include="..\CodeTest\CodeTest.csproj" />
   </ItemGroup>
 
 </Project>

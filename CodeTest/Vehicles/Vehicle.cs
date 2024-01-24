@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TollCalculator.Vehicles
+namespace CodeTest.Vehicles
 {
     public enum VehicleType
     {
