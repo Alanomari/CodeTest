@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TollFeeCalculator;
 
-namespace CodeTest.Vehicles
+namespace TollCalculator.Vehicles
 {
     public class Car : IVehicle
     {

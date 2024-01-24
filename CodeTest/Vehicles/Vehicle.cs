@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace TollCalculator.Vehicles
 {
-    public class Motorbike : IVehicle
+    public enum VehicleType
     {
-        public VehicleType GetVehicleType()
-        {
-            return VehicleType.Motorbike;
-        }
+        Motorbike,
+        Car,
+    }
+
+    public interface IVehicle
+    {
+        VehicleType GetVehicleType();
     }
 }
