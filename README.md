@@ -19,6 +19,8 @@ Createed separete method for totalfee (AdjustTotalFee) for improving readabillit
 
 Made classes static since they dont access instance data.
 
+Cleaned up IsTollFreeVehicle method.
+
 4. added new testing project:
 
 added the MSTest test framework, adapter and SDK to conduct unit tests, setup testing for car and motorbike, the implemented tests will check if we get the assumed correct toll fee value.
