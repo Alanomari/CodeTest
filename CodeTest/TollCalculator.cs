@@ -16,9 +16,7 @@
             const int maxTotalFee = 60;
 
             if (dates == null || dates.Length == 0)
-            {
                 return 0;
-            }
 
             DateTime intervalStart = dates[0];
             int totalFee = 0;
@@ -31,13 +29,9 @@
                 TimeSpan timeDifference = date - intervalStart;
 
                 if (timeDifference.TotalMinutes <= 60)
-                {
                     totalFee = AdjustTotalFee(totalFee, tempFee, nextFee);
-                }
                 else
-                {
                     totalFee += nextFee;
-                }
             }
 
             return Math.Min(totalFee, maxTotalFee);
@@ -46,9 +40,7 @@
         private static int AdjustTotalFee(int totalFee, int tempFee, int nextFee)
         {
             if (totalFee > 0)
-            {
                 totalFee -= tempFee;
-            }
 
             return totalFee + Math.Max(nextFee, tempFee);
         }
@@ -57,12 +49,7 @@
         {
             if (vehicle == null) return false;
             string vehicleType = vehicle.GetVehicleType().ToString();
-            return vehicleType.Equals(TollFreeVehicles.Motorbike.ToString()) ||
-                   vehicleType.Equals(TollFreeVehicles.Tractor.ToString()) ||
-                   vehicleType.Equals(TollFreeVehicles.Emergency.ToString()) ||
-                   vehicleType.Equals(TollFreeVehicles.Diplomat.ToString()) ||
-                   vehicleType.Equals(TollFreeVehicles.Foreign.ToString()) ||
-                   vehicleType.Equals(TollFreeVehicles.Military.ToString());
+            return Enum.IsDefined(typeof(TollFreeVehicles), vehicleType);
         }
 
         public static int GetTollFee(DateTime date, IVehicle vehicle)
@@ -93,10 +80,8 @@
 
         private static bool IsTollFreeDate(DateTime date)
         {
-
             if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
                 return true;
-
 
             int year = date.Year;
             int month = date.Month;
@@ -106,23 +91,23 @@
                 return true;
 
             var holidays = new List<DateTime>
-        {
-        new(year, 1, 1),
-        new(year, 3, 28),
-        new(year, 3, 29),
-        new(year, 4, 1),
-        new(year, 4, 30),
-        new(year, 5, 1),
-        new(year, 5, 8),
-        new(year, 5, 9),
-        new(year, 6, 5),
-        new(year, 6, 6),
-        new(year, 6, 21),
-        new(year, 11, 1),
-        new(year, 12, 24),
-        new(year, 12, 25),
-        new(year, 12, 26)
-        };
+            {
+                new(year, 1, 1),
+                new(year, 3, 28),
+                new(year, 3, 29),
+                new(year, 4, 1),
+                new(year, 4, 30),
+                new(year, 5, 1),
+                new(year, 5, 8),
+                new(year, 5, 9),
+                new(year, 6, 5),
+                new(year, 6, 6),
+                new(year, 6, 21),
+                new(year, 11, 1),
+                new(year, 12, 24),
+                new(year, 12, 25),
+                new(year, 12, 26)
+            };
 
             if (holidays.Contains(date.Date))
                 return true;
